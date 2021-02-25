@@ -21,8 +21,6 @@ const galleryRef = document.querySelector("#gallery");
 const createImgEl = ({ url, alt }) =>
   `<li class="gallery-item"><img src="${url}" alt="${alt}"/></li>`;
 
-const createLayout = (options) => {
-  return options.map(createImgEl).join("");
-};
+const createLayout = (options) => options.map(createImgEl).join("");
 
 galleryRef.insertAdjacentHTML("afterbegin", createLayout(images));
