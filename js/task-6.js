@@ -1,11 +1,13 @@
 const inputWithValidation = document.querySelector("#validation-input");
 
-function onChangeInput(event) {
-  if (event.currentTarget.value.length < inputWithValidation.dataset.length) {
-    return inputWithValidation.classList.add("invalid");
-  }
-  inputWithValidation.classList.remove("invalid");
-  return inputWithValidation.classList.add("valid");
-}
+inputWithValidation.onblur = function (event) {
+  event.currentTarget.value.length < inputWithValidation.dataset.length
+    ? this.classList.add("invalid")
+    : this.classList.add("valid");
+};
 
-inputWithValidation.addEventListener("input", onChangeInput);
+inputWithValidation.onfocus = function (event) {
+  event.currentTarget.value.length < inputWithValidation.dataset.length
+    ? this.classList.remove("invalid")
+    : this.classList.remove("valid");
+};
