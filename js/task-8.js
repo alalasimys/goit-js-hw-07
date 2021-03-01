@@ -3,9 +3,6 @@ const renderBtnRef = document.querySelector('button[data-action="render"]');
 const destroyBtnRef = document.querySelector('button[data-action="destroy"]');
 const boxLayout = document.querySelector("#boxes");
 
-let baseWidth = 20;
-let baseHeight = 20;
-
 const randomNumber = (min, max) =>
   min + Math.floor(Math.random() * (max - min + 1));
 
@@ -18,6 +15,9 @@ function randomRBG() {
 }
 
 function createBoxes(amount) {
+  let baseWidth = 20;
+  let baseHeight = 20;
+
   for (let i = 0; i < amount; i++) {
     baseWidth += 10;
     baseHeight += 10;
@@ -39,9 +39,6 @@ function handleClick() {
 
 function destroyBoxes() {
   boxLayout.textContent = "";
-
-  baseWidth = 20;
-  baseHeight = 20;
 }
 
 renderBtnRef.addEventListener("click", handleClick);
